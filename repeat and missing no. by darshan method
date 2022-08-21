@@ -1,0 +1,20 @@
+#include <bits/stdc++.h> 
+
+pair<int,int> missingAndRepeating(vector<int> &arr, int n)
+{
+    long sum_1_n = n*(n+1)/2;
+    long sum_sq_1_n = (long)n*((n+1)*(2*n+1)) / 6;
+    int arr_sum = 0;
+    int arr_sq_sum = 0;
+    for(int i = 0;i<n;i++)
+    {
+        arr_sum += arr[i];
+        arr_sq_sum += (arr[i]*arr[i]);
+    }
+	int m_r = sum_1_n - arr_sum;
+    int m2_r2 = sum_sq_1_n - arr_sq_sum;
+    int m_plus_r = m2_r2/ m_r;
+    int m = (m_plus_r + m_r)/2;
+    int r = (m_plus_r - m_r)/2;
+    return make_pair(m,r);
+}
