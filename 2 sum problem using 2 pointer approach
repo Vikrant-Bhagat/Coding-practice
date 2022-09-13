@@ -1,0 +1,64 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& nums, int target) {
+          vector<int> ans,store;
+          store=nums;
+          int n1,n2;
+          sort(nums.begin(),nums.end());
+          int left = 0;
+          int right = nums.size()-1;
+          while(left<right){
+              if(nums[left]+nums[right]==target){
+                  n1 = nums[left];
+                  n2 = nums[right];
+                  break;
+              }
+              else if(nums[left]+nums[right]>target){
+                  right--;
+              }
+              else{
+                  left++;
+              }
+          }
+         for(int i =0;i<store.size();i++){
+             if(n1==store[i]){
+                 ans.push_back(i);
+             }
+             else if(n2 == store[i]){
+                 ans.push_back(i);
+             }
+             
+         }
+        return ans;
+    }
+        
+//         unordered_map<int,int> umap;
+//         vector<int> res;
+//         for(int i=0;i<nums.size();i++){
+//             umap[nums[i]]=i;
+//         }
+//         for(int i=0;i<nums.size();i++){
+//             if(umap.find(target-nums[i])!=umap.end() && umap[target-nums[i]] != i ){
+//                 res.push_back(i);
+//                 res.push_back(umap[target-nums[i]]);
+//                 return res;
+                
+//             }
+//         }
+//         return res;
+    
+        
+            
+//         vector<int> ans;
+//         for(int i=0;i<nums.size()-1;i++){
+//             for(int j=i+1;j<nums.size();j++){
+//                 if(nums[i]+nums[j]==target){
+//                     ans.push_back(i);
+//                     ans.push_back(j);
+                    
+//                 }
+//             }
+//         }
+//         return ans;
+
+};
